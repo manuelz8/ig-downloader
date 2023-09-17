@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Downloader</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+
+<body>
+    <div class="wrapper dark-theme">
+        <div class="main-container">
+            <main class="container p-1">
+                <div class="content">
+                    <h2 class="mb-1">
+                        <span>Enter Instagram URL</span>
+                        <i class="fa-solid fa-link"></i>
+                    </h2>
+                    <form id="searchForm" class="d-flex gap-1 mb-2">
+                        <input type="text" id="urlInput" class="input w-100" placeholder="...">
+                        <button type="submit" class="btn-icon">
+                            <i class="fa-solid fa-angle-right h5"></i>
+                        </button>
+                    </form>
+                    <div id="mediaContainer">
+                        <!-- <div class="card">
+                            <img class="card-media" src="/static/image_folder/86474f1a-a88d-40f6-b0ab-6362aeba269e_ig.jpg" alt="">
+                            <div class="h-10 d-flex align-items-center justify-content-end px-1">
+                                <a href="#" class="txt-dec-none text-bold">
+                                    <span class="mr-1">Download</span>
+                                    <i class="fa-solid fa-download"></i>
+                                </a>
+                            </div>
+                        </div> -->
+                        <!-- <div class="card">
+                            <video class="card-media"  data-setup="{}" controls
+                            src="/static/image_folder/d2b44b3c-08ce-4857-ac01-9f8e32cbd6e0_ig.mp4"></video>
+                            <div class="h-10 d-flex align-items-center justify-content-end px-1">
+                                <a href="#" class="txt-dec-none text-white text-bold">
+                                    <span class="mr-1">Download</span>
+                                    <i class="fa-solid fa-download"></i>
+                                </a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+        </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/static/js/instagramMedia.js"></script>
+</body>
+
+</html>
