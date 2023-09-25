@@ -802,7 +802,7 @@ body {
     cursor: pointer;
 }
 
-.input {
+.input, .textarea {
     padding: 0.25em 1em;
     border: 0.15em solid var(--color-gray-dst);
     border-radius: 5px;
@@ -810,9 +810,16 @@ body {
     font-weight: bold;
     background-color: transparent;
 }
-.input:focus-visible {
+.input:focus-visible, .textarea:focus-visible {
     outline: none;
 }
+
+.textarea {
+    resize: none;
+    height: 1.6rem;
+    /* line-height: 1rem; */
+}
+
 .select {
     padding: 0.25em 1em;
     border: 0.15em solid var(--color-gray-dst);
@@ -965,6 +972,13 @@ body {
     height: 90%;
     border-radius: 5px;
     object-fit: cover;
+}
+
+.media-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
 }
 
 @media (min-width: 992px) {

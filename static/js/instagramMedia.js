@@ -1,20 +1,31 @@
 const searchForm = document.getElementById('searchForm');
 const mediaContainer = document.getElementById('mediaContainer');
+const processInfo = document.getElementById('processInfo');
 
 searchForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const url = searchForm.urlInput.value;
-    mediaContainer.innerHTML = `<h3>Loading...</h3>`;
-    try {
-        const body = { url };
-        const response = await axios.post('/get_instagram_media', body);
-        const file_directory = '/' + response.data.file_directory;
-        displayContent(file_directory);
+    mediaContainer.innerHTML = '';
 
-    } catch (error) {
-        console.error(error)
-        mediaContainer.innerHTML = "<h3>Something went wrong. This profile/post has age restriction or isn't public</h3>";
+    const multi_url = searchForm.urlInput.value.split(',');
+
+    let iterator = 0;
+    for (const url of multi_url) {
+        processInfo.innerHTML = `Loading (${iterator}/${multi_url.length})`;
+        try {
+            const body = { url };
+            const response = await axios.post('/get_instagram_media', body);
+            const file_directory = '/' + response.data.media_url;
+            displayContent(file_directory);
+        } catch (error) {
+            console.error(error)
+            displayError(error);
+        }finally{
+            iterator++;
+            processInfo.innerHTML = `Loading (${iterator}/${multi_url.length})`;
+        }
     }
+
+    processInfo.innerHTML = '';
 });
 
 const displayContent = (file_directory) => {
@@ -35,7 +46,7 @@ const displayContent = (file_directory) => {
             </div>
         </div>
     `
-    mediaContainer.innerHTML = template.trim();
+    mediaContainer.innerHTML += template.trim();
 
     const downloaderTag = document.getElementById('downloaderTag');
     downloaderTag.addEventListener('click', () => {
@@ -43,6 +54,17 @@ const displayContent = (file_directory) => {
     });
 }
 
+const displayError = (error) => {
+    const template = `
+        <div class="card">
+            <h3>
+                Something went wrong.
+                This profile/post has age restriction or isn't public
+            </h3>
+        </div>
+    `
+    mediaContainer.innerHTML += template.trim();
+}
 
 const downloadMedia = async (file_directory) => {
     axios.get(file_directory, { responseType: 'blob' })

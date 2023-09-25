@@ -23,12 +23,18 @@
                         <i class="fa-solid fa-link"></i>
                     </h2>
                     <form id="searchForm" class="d-flex gap-1 mb-2">
-                        <input type="text" id="urlInput" class="input w-100" placeholder="...">
+                        <textarea
+                            id="urlInput"
+                            class="textarea w-100"
+                            placeholder="..."
+                        ></textarea>
                         <button type="submit" class="btn-icon">
-                            <i class="fa-solid fa-angle-right h5"></i>
+                            <i class="fa-solid fa-angle-right"></i>
                         </button>
                     </form>
-                    <div id="mediaContainer">
+                    <h3 id="processInfo" class="mb-1">
+                    </h3>
+                    <div id="mediaContainer" class="media-container">
                         <!-- <div class="card">
                             <img class="card-media" src="/static/image_folder/86474f1a-a88d-40f6-b0ab-6362aeba269e_ig.jpg" alt="">
                             <div class="h-10 d-flex align-items-center justify-content-end px-1">

@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import instagram as ig
 
 app = Flask(__name__)
+app.config['TIMEOUT'] = 50
 
 @app.route('/')
 def instagram_media():
@@ -13,12 +14,19 @@ def get_instagram_content():
         data = request.get_json()
 
         url = data.get("url")
-        file_directory = ig.get_instagram_media(url)
-        response = { 'file_directory': file_directory }
-        if 'Fail' in file_directory:
-            return response, 400
+        content_data = ig.get_instagram_media(url)
 
-        return response, 200
+        if content_data['success'] == False:
+            return content_data, 400
+
+        audit_data = {
+            'username': content_data['username'],
+            'media_url': content_data['media_url'],
+            'followers': content_data['followers'],
+        }
+        ig.instagram_audit(audit_data)
+
+        return content_data, 200
 
     except Exception as e:
         return {"error": str(e)}, 500
