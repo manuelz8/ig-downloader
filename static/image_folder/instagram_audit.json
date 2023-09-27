@@ -1,7 +1,17 @@
 [
     {
-        "username": "gridslounge",
-        "media_url": "static/image_folder/5820a14f-7024-4152-baeb-d8f5c56f428a_ig.jpg",
-        "followers": "438,049"
+        "username": "tryx.arts",
+        "media_url": "static/image_folder/7b5c3094-cea4-4eb4-b025-2e0ab2301ddb_ig.jpg",
+        "followers": "25,655"
+    },
+    {
+        "username": "tryx.arts",
+        "media_url": "static/image_folder/4c882224-13c7-4302-a23f-174eaf6fc6d1_ig.jpg",
+        "followers": "25,655"
+    },
+    {
+        "username": "coding_knowladge",
+        "media_url": "static/image_folder/4c41f94e-dcf2-4b39-849e-25b6b81a9da0_ig.mp4",
+        "followers": "109,195"
     }
 ]
